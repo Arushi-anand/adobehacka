@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  pdf-heading-extractor:
+    build: .
+    container_name: pdf-heading-ml
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+      - ./model/trained_models:/app/model/trained_models
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python main_ml.py
